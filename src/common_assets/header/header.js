@@ -24,8 +24,11 @@ function Header() {
           </MDBNavbarToggler>
           <div className='collapse navbar-collapse' id='navbarExample01'>
             <MDBNavbarNav  className='mb-2 mb-lg-0'>
+            <MDBNavbarItem active>
+                  <MDBNavbarLink className="ts"  aria-current='page' href='/'> Home </MDBNavbarLink>
+              </MDBNavbarItem>
               <MDBNavbarItem active>
-                  <MDBNavbarLink className="ts"  aria-current='page' href='/'> Diagnosis </MDBNavbarLink>
+                  <MDBNavbarLink className="ts"  aria-current='page' href='/diagnosis'> Diagnosis </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem >
                   <MDBNavbarLink className="ts" href='/Register'> Register </MDBNavbarLink>
@@ -34,7 +37,7 @@ function Header() {
                   <MDBNavbarLink className="ts" href='/Login'>Login</MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem >
-                  <MDBNavbarLink className="ts" href='/Aboutus'>About Us</MDBNavbarLink>
+                  <MDBNavbarLink className="ts" href='/Contactus'>Contact Us</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </div>

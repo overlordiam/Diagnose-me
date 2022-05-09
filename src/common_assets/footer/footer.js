@@ -1,5 +1,5 @@
 import React from "react";
-import "./footerStyles.jsx"
+import "./footerStyles.css"
 import {
   MDBFooter,
   MDBCol,

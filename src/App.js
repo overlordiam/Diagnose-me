@@ -5,6 +5,8 @@ import Home from "./pages/home/home.js"
 import Footer from "./common_assets/footer/footer"
 import Register from "./pages/register/register"
 import Login from "./pages/login/login"
+import Diagnosis from './pages/diagnosis/diagnosis';
+import Contact from "./pages/contactus/contactus"
 // import About from "./pages/aboutus/aboutus"
 function App() {
   return (
@@ -13,8 +15,9 @@ function App() {
       <Routes>
         <Route path= "/" element={<Home />} />
         <Route path = "/Register" element={<Register />} />
+        <Route path = "/diagnosis" element={<Diagnosis/>} />
         <Route path="/Login" element={<Login />} />
-        {/* <Route path="/About" element={<About />} /> */}
+        <Route path="/Contactus" element={<Contact />} />
       </Routes>
       <Footer/>
     </div>
