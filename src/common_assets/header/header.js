@@ -12,7 +12,7 @@ import {
 
 function Header() {
   return (
-    <header>
+    <header style={{textAlign:"center"}}>
       <MDBNavbar className="marg" expand='lg' light bgColor='white'>
         <MDBContainer fluid>
           <MDBNavbarToggler
@@ -25,15 +25,16 @@ function Header() {
           <div className='collapse navbar-collapse' id='navbarExample01'>
             <MDBNavbarNav  className='mb-2 mb-lg-0'>
               <MDBNavbarItem active>
-                <MDBNavbarLink className="ts"  aria-current='page' href='#'>
-                Diagnosis
-                </MDBNavbarLink>
+                  <MDBNavbarLink className="ts"  aria-current='page' href='/'> Diagnosis </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem >
-                <MDBNavbarLink className="ts" href='#'>Login</MDBNavbarLink>
+                  <MDBNavbarLink className="ts" href='/Register'> Register </MDBNavbarLink>
               </MDBNavbarItem>
               <MDBNavbarItem >
-                <MDBNavbarLink className="ts" href='#'>About Us</MDBNavbarLink>
+                  <MDBNavbarLink className="ts" href='/Login'>Login</MDBNavbarLink>
+              </MDBNavbarItem>
+              <MDBNavbarItem >
+                  <MDBNavbarLink className="ts" href='/Aboutus'>About Us</MDBNavbarLink>
               </MDBNavbarItem>
             </MDBNavbarNav>
           </div>

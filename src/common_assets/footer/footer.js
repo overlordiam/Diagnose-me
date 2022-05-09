@@ -1,8 +1,7 @@
 import React from "react";
-
+import "./footerStyles.jsx"
 import {
   MDBFooter,
- 
   MDBCol,
   MDBRow,
   MDBIcon
