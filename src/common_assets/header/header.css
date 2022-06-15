@@ -1,0 +1,14 @@
+.marg {
+  padding-left: 32%;
+  display: flex;
+  justify-content: space-evenly;
+}
+.ts {
+  margin-left: 15px;
+  font-weight: 1000;
+  color: black !important;
+}
+
+header {
+    font-family: 'Noto Sans JP', sans-serif;
+}
