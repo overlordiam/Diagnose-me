@@ -7,8 +7,16 @@ function Diagnosis() {
   const [image, setImage] = useState({ preview: '', data: '' })
   const [status, setStatus] = useState('')
   const [img_base64, setImg_base64] = useState('')
+  const [getMessage, setGetMessage] = useState('')
 
-  useEffect(() => {}, [img_base64])
+  useEffect(() => {
+    Axios.get('http://localhost:5000/flask/hello').then(response => {
+      console.log("SUCCESS", response)
+      setGetMessage(response)
+    }).catch(error => {
+      console.log(error)
+  })
+}, [img_base64])
 
   // function encodeImageFileAsURL(e) {
   //   var file = e.target.files[0];
@@ -25,7 +33,7 @@ function Diagnosis() {
     
     let formData = new FormData()
     formData.append('file', image.data)
-    const response = await fetch('http://localhost:4000/image', {
+    const response = await fetch('http://localhost:8000/predict', {
       method: 'POST',
       body: formData,
     })
@@ -56,6 +64,10 @@ function Diagnosis() {
       <h1>Upload to server</h1>
       {image.preview && <img src={image.preview} width='100' height='100' />}
       <hr></hr>
+      <div>{getMessage.status === 200 ? 
+          <h3>{getMessage.data.message}</h3>
+          :
+          <h3>LOADING</h3>}</div>
       <form onSubmit={handleSubmit}>
         <input type='file' name='file' onChange={handleFileChange}></input>
         <button type='submit'>Submit</button>
