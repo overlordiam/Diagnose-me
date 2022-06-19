@@ -1,5 +1,5 @@
 
-from flask import Flask, request, jsonify
+from flask import Flask, request, jsonify, json
 import os
 from flask_cors import CORS, cross_origin
 from utils.utils import decodeImage
@@ -40,6 +40,7 @@ def predictRoute():
     file.save(target)
     clApp = ClientApp()
     result = clApp.classifier.predictiondogcat()
+    print(result)
     return jsonify(result)
 
 

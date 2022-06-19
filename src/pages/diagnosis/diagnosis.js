@@ -1,15 +1,12 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useContext } from "react";
+import { useNavigate } from 'react-router-dom';
+import {ImageContext} from "../../Contexts/ImageContext"
 import "./diagnosis.css"
-import Predict from '../../predict'
 import Axios from "axios";
 
 function Diagnosis() {
-  const [image, setImage] = useState({ preview: '', data: ''})
-  const [status, setStatus] = useState('')
-  const [getMessage, setGetMessage] = useState('')
-
-//   useEffect(() => {
-// }, [img_base64])
+  const navigate = useNavigate();
+  const {image, setImage, setResolvedData} = useContext(ImageContext)
 
 
   const handleSubmit = async (e) => {
@@ -18,9 +15,13 @@ function Diagnosis() {
     formData.append('file', image.data)
     
     const res = await Axios.post("http://localhost:5000/predict", formData, {
-      "Content-Type": "multipart/form-data"
+      "Content-Type": "multipart/form-data",
+      'Accept': 'multipart/form-data'
     })
-    console.log(res);
+    console.log(res.data);
+    setResolvedData(res.data)
+    navigate('/result');
+
   }
   
   const handleFileChange = async (e) => {
@@ -32,28 +33,22 @@ function Diagnosis() {
 
     setImage(img)
     reader.onloadend = async () => {
-       reader.result;
+       const res = reader.result;
     }
     reader.readAsDataURL(e.target.files[0]);
     
   }
 
   return (
-    <div className='App'>
-      <h1>Upload to server</h1>
-      {image.preview && <img src={image.preview} width='100' height='100' />}
-      <hr></hr>
-      <div>{getMessage.status === 200 ? 
-          <h3>{getMessage.data.message}</h3>
-          :
-          <h3>LOADING</h3>}</div>
-      <form onSubmit={handleSubmit}>
-        <input type='file' name='file' onChange={handleFileChange}></input>
-        <button type='submit'>Submit</button>
-        <p>{status}</p>
-        {/* <Predict img_base64={img_base64} img={image} /> */}
-      </form>
-    </div>
+  <div className='App'>
+  <h1>Upload to server</h1>
+  {image.preview && <img src={image.preview} width='100' height='100' />}
+  <hr></hr>
+  <form onSubmit={handleSubmit}>
+    <input type='file' name='file' onChange={handleFileChange}></input>
+    <button type='submit'>Submit</button>
+  </form>
+</div>
   )
 }
 
