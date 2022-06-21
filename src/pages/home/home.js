@@ -1,30 +1,39 @@
-import React from 'react'
-import { Carousel } from 'react-responsive-carousel';
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import './home.css'
+import React from 'react';
+import './home.css';
+import Carousel from 'react-bootstrap/Carousel';
+// NOTE: if using fullpage extensions/plugins put them here and pass it as props
 
 
-function home() {
-  return (
-      <div className="homePage">
-          <Carousel classname="carousel_" autoPlay={true} infiniteLoop={true} showStatus={false} dynamicHeight={true}>
-                <div>
-                    <img src="https://neoretina.com/blog/wp-content/uploads/2018/12/diabetic-rethonopaty-1200x675.jpg" />
-                    <p className="legend">Legend 1</p>
-                </div>
-                <div>
-                    <img src="https://www.mayoclinic.org/-/media/kcms/gbs/patient-consumer/images/2013/08/26/10/41/ds00283_im00143_r7_openanglethu_jpg.jpg" />
-                    <p className="legend">Legend 2</p>
-                </div>
-                <div>
-                    <img src="https://www.visioncenter.org/wp-content/uploads/2020/07/Macular-Degeneration-1024x535.jpg" />
-                    <p className="legend">Legend 3</p>
-                </div>
-          </Carousel>
+function Home() {
+    return(
+        <Carousel fade>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="http://www.eyeiq.net/media/cds/eyeiq/moneyBasics/3438/images/1130x591-blog-diabetic-retinopathy.png"
+            alt="First slide"
+          />
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://www.inmedpharma.com/wp-content/uploads/2020/05/Glaucoma-compared-to-normal-vision.png"
+            alt="Second slide"
+          />
+      
 
-      </div>
-   
-  )
+        </Carousel.Item>
+        <Carousel.Item>
+          <img
+            className="d-block w-100"
+            src="https://www.drugwatch.com/wp-content/uploads/Degenerated-Macula-1.jpg"
+            alt="Third slide"
+          />
+        </Carousel.Item>
+      </Carousel>
+);  
 }
 
-export default home
+
+
+export default Home;

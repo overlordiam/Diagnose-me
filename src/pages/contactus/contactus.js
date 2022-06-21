@@ -26,6 +26,8 @@ function ContactUs() {
   }
 
   return (
+    <div className="main">
+    <div class="gfg-div">
       <div className="row contact-row">
         <div className="col-6 contact-form">
           <form onSubmit={sendEmail} className="forms">
@@ -71,11 +73,10 @@ function ContactUs() {
               </div>
           
             <div className="send_button">
-              <button >
+              <button className="but">
                 SEND
               </button>
-
-              </div>
+            </div>
 
             </div>
           </form>
@@ -88,7 +89,8 @@ function ContactUs() {
            />
         </div>
       </div>
- 
+      </div>
+      </div>
   );
 }
 

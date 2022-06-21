@@ -1,0 +1,22 @@
+
+.main{
+    width:350px !important;
+    margin: 6% 0 0 28%;
+    height:100% !important;
+
+}
+
+.gfg-div{
+    height:100% !important;
+    width:500px !important;
+}
+
+.send_button{
+    padding-top:2%;
+}
+
+.but{
+    width:350px;
+    border-radius: 5%;
+    background-color:#ff4b2b;
+}

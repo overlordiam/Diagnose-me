@@ -3,28 +3,23 @@
 * {
   box-sizing: border-box;
 }
-body {
-  margin: 0;
-  padding: 0;
-}
 .wrapper {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  background: #ebecf0;
   overflow: hidden;
 }
-.container {
+.containers {
   border-radius: 10px;
   box-shadow: -5px -5px 10px #fff, 5px 5px 10px #babebc;
   position: absolute;
-  width: 768px;
+  width: 850px;
   min-height: 480px;
   overflow: hidden;
 }
-form {
+.form {
   background: #ebecf0;
   display: flex;
   flex-direction: column;
@@ -32,7 +27,6 @@ form {
   height: 100%;
   justify-content: center;
   align-items: center;
-  margin-top: 5%
 }
 form input {
   background: #eee;
@@ -50,8 +44,8 @@ button {
   outline: none;
   font-size: 12px;
   font-weight: bold;
-  padding: 15px 45px;
-  margin: 14px;
+  padding: 20px 43px;
+  margin-right: 28px;
   letter-spacing: 1px;
   text-transform: uppercase;
   cursor: pointer;
@@ -59,11 +53,9 @@ button {
 }
 .form_btn {
   box-shadow: -5px -5px 10px #fff, 5px 5px 8px #babebc;
-  background-color: #ff4b2b;
-  color: #fff;
-  /* color: #000;
-  background-color: #fff; */
-  font-family: 'Noto Sans JP', sans-serif;
+  background-color:#ff4b2b;
+  color: white;
+  border-radius: 9%;
 }
 .form_btn:active {
   box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
@@ -75,7 +67,6 @@ button {
   display: flex;
   justify-content: center;
   font-family: 'Noto Sans JP', sans-serif;
-  text-decoration: none;
   
 }
 .sign-in-container {
@@ -178,6 +169,7 @@ span {
 }
 .social-links div:active {
   box-shadow: inset 1px 1px 2px #babebc, inset -1px -1px 2px #fff;
+  
 }
 
 input:focus::placeholder {
@@ -188,13 +180,8 @@ input:focus::placeholder {
     margin: 3%
 }
 
-.custom_input {
-  width: 100%;
-}
-
-.login_headline {
-  
-  justify-content: center; 
+h3 {
+  font-size:13px; 
 }
 
 .error_warning {
@@ -202,4 +189,13 @@ input:focus::placeholder {
   padding: 0;
   margin: 0;
   color: red;
+}
+
+.custom_input{
+  width:250px;
+}
+
+
+h3{
+  color:black;
 }

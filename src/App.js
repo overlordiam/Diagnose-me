@@ -11,20 +11,20 @@ import Result from "./pages/result/result"
 import {ImageContext} from "./Contexts/ImageContext"
 
 function App() {
-  const [image, setImage] = useState({ preview: '', data: ''})
-  const [resolvedData, setResolvedData] = useState(null)
+  const [imageDR, setImageDR] = useState({ preview: '', data: ''})
+  const [resolvedDataDR, setResolvedDataDR] = useState(null)
 
   return (
     <div className='App'>
       <Header/>
-      <ImageContext.Provider value={{image, setImage, resolvedData, setResolvedData}}>
+      <ImageContext.Provider value={{imageDR, setImageDR, resolvedDataDR, setResolvedDataDR}}>
       <Routes>
         <Route path= "/" element={<Home />} />
-        <Route path = "/Register" element={<Register />} />
+        <Route path = "/register" element={<Register />} />
           <Route path = "/diagnosis" element={<Diagnosis/>} />
           <Route path="/result" element={<Result />} />
-        <Route path="/Login" element={<Login />} />
-        <Route path="/Contactus" element={<Contact />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/contactus" element={<Contact />} />
       </Routes>
       </ImageContext.Provider>
       <Footer/>
