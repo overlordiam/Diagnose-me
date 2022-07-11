@@ -15,7 +15,6 @@ def predict_image_classification_sample(
     client = aiplatform.gapic.PredictionServiceClient(client_options=client_options)
     with open(filename, "rb") as f:
         file_content = f.read()
-
     encoded_content = base64.b64encode(file_content).decode("utf-8")
     instance = predict.instance.ImageClassificationPredictionInstance(
         content=encoded_content,
@@ -35,13 +34,13 @@ def predict_image_classification_sample(
     predictions = response.predictions
     for prediction in predictions:
         print(" prediction:", dict(prediction))
-    return prediction
+    return dict(prediction)
 
 
 
 result = predict_image_classification_sample(
     project="932347768861",
-    endpoint_id="4188444410477805568",
+    endpoint_id="5277189620394622976",
     location="us-central1",
     filename="backend/_0_343.jpg"
 )

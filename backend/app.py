@@ -27,9 +27,9 @@ def home():
     }
 
 
-@app.route("/predict", methods=['POST'])
+@app.route("/predictDR", methods=['POST'])
 @cross_origin()
-def predictRoute():
+def predictRouteDR():
     pathOfImage = "images"
     if not os.path.isdir(pathOfImage):
         os.mkdir(pathOfImage)
@@ -45,23 +45,25 @@ def predictRoute():
 
 # @app.route("/predictGlaucoma", methods=['POST'])
 # @cross_origin()
-# def predictRoute():
+# def predictRouteGlaucoma():
 #     pathOfImage = "GlaucomaImages"
 #     if not os.path.isdir(pathOfImage):
 #         os.mkdir(pathOfImage)
 #     target=os.path.join(pathOfImage,'image.png')
 #     print("hello")
-#     file = request.files.get('file')
-#     print(file)
-#     file.save(target)
+#     # file = request.files.get('file')
+#     # print(file)
+#     # file.save(target)
 #     result = predict_image_classification_sample(
 #     project="932347768861",
-#     endpoint_id="5109219428042539008",
+#     endpoint_id="5581182595242131456",
 #     location="us-central1",
-#     filename="_0_343.jpg"
-# )
-#     print(result)
-#     return jsonify(result)
+#     filename="backend/_0_343.jpg"
+# ) 
+#     response = {}
+#     response['displayNames'] = result['displayNames']
+#     print(response)
+#     return response
 
 
 if __name__ == "__main__":
