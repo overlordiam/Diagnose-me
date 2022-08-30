@@ -43,27 +43,27 @@ def predictRouteDR():
     print(result)
     return jsonify(result)
 
-# @app.route("/predictGlaucoma", methods=['POST'])
-# @cross_origin()
-# def predictRouteGlaucoma():
-#     pathOfImage = "GlaucomaImages"
-#     if not os.path.isdir(pathOfImage):
-#         os.mkdir(pathOfImage)
-#     target=os.path.join(pathOfImage,'image.png')
-#     print("hello")
-#     # file = request.files.get('file')
-#     # print(file)
-#     # file.save(target)
+@app.route("/predictGlaucoma", methods=['POST'])
+@cross_origin()
+def predictRouteGlaucoma():
+    pathOfImage = "GlaucomaImages"
+    if not os.path.isdir(pathOfImage):
+        os.mkdir(pathOfImage)
+    target=os.path.join(pathOfImage,'image.png')
+    print("hello")
+    # file = request.files.get('file')
+    # print(file)
+    # file.save(target)
 #     result = predict_image_classification_sample(
 #     project="932347768861",
 #     endpoint_id="5581182595242131456",
 #     location="us-central1",
 #     filename="backend/_0_343.jpg"
 # ) 
-#     response = {}
-#     response['displayNames'] = result['displayNames']
-#     print(response)
-#     return response
+    response = {}
+    response['displayNames'] = result['displayNames']
+    print(response)
+    return ""
 
 
 if __name__ == "__main__":

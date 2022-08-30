@@ -1,12 +1,11 @@
 import React, { useState } from 'react'
 import "./customInput.css"
 
-const CustomInput = ({ type, placeholder, className, callback }) => {
+const CustomInput = ({ type, placeholder, className }) => {
 
   const [input, setInput] = useState("")
   const handleChange = e => {
     setInput(e.target.value)
-    callback(input)
     console.log(input)
   }
 

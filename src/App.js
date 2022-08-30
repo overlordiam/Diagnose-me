@@ -13,15 +13,17 @@ import {ImageContext} from "./Contexts/ImageContext"
 function App() {
   const [imageDR, setImageDR] = useState({ preview: '', data: ''})
   const [resolvedDataDR, setResolvedDataDR] = useState(null)
+  const [imageGlaucoma, setImageGlaucoma] = useState({ preview: "", data: "" })
+  const [resolvedDataGlaucoma, setResolvedDataGlaucoma] = useState(null)
 
   return (
     <div className='App'>
       <Header/>
-      <ImageContext.Provider value={{imageDR, setImageDR, resolvedDataDR, setResolvedDataDR}}>
+      <ImageContext.Provider value={{imageDR, setImageDR, resolvedDataDR, setResolvedDataDR, imageGlaucoma, setImageGlaucoma, resolvedDataGlaucoma, setResolvedDataGlaucoma}}>
       <Routes>
         <Route path= "/" element={<Home />} />
         <Route path = "/register" element={<Register />} />
-          <Route path = "/diagnosis" element={<Diagnosis/>} />
+          <Route path = "/upload" element={<Diagnosis/>} />
           <Route path="/result" element={<Result />} />
         <Route path="/login" element={<Login />} />
         <Route path="/contactus" element={<Contact />} />

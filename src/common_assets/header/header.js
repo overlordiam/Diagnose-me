@@ -27,9 +27,9 @@ function Header() {
             <MDBNavbarItem active>
                   <MDBNavbarLink className="ts"  aria-current='page' href='/'> Home </MDBNavbarLink>
               </MDBNavbarItem>
-              <MDBNavbarItem active>
-                  <MDBNavbarLink className="ts"  aria-current='page' href='/diagnosis'> Diagnosis </MDBNavbarLink>
-              </MDBNavbarItem>
+              {/* <MDBNavbarItem active>
+                  <MDBNavbarLink className="ts"  aria-current='page' href='/upload'> Diagnosis </MDBNavbarLink>
+              </MDBNavbarItem> */}
               <MDBNavbarItem >
                   <MDBNavbarLink className="ts" href='/Register'> Register </MDBNavbarLink>
               </MDBNavbarItem>

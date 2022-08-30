@@ -2,9 +2,9 @@ import React,{useState, useEffect} from 'react';
 import { Link, useNavigate } from 'react-router-dom'
 import Axios from "axios";
 import "./login.css";
-import CustomButton from "../../customButton/customButton";
-import CustomInput from "../../customInput/customInput";
-
+import {auth} from "../../firebase.js"
+// import CustomButton from "../../custombutton/custombutton";
+// import CustomInput from "../../customInput/customInputs";
 function Login() {
 
     const [email, setEmail] = useState("");
@@ -12,90 +12,32 @@ function Login() {
     const [invalid, setInvalid] = useState("")
     const [passwordError, setPasswordError] = useState("")
     const [emailError, setEmailError] = useState("")
-    const [tryAgain, setTryAgain] = useState(false)
+    const [disable, setDisable] = useState(false)
     const navigate = useNavigate();
 
-    useEffect(() => {
-      setEmail("")
-      setPassword("")
-    }, [])
+const handleSubmit = (e) => {
+  e.preventDefault();
 
-    const emailCallback = (value) => {
-      setEmail(value);
-    }
+  setEmail('');
+  setPassword('');
 
-    const passwordCallback = (value) => {
-      setPassword(value);
-    }
+  auth
+  .signInWithEmailAndPassword(email,password)
+  .then(auth => {
+      navigate('/upload')
+  })
+  .catch(error => alert(error.message))
+}
 
-    // const toggleInvalid = () => setInvalid((state) => !state);
-
-    const handleSubmit = async e => {
-        // e.preventDefault();
-        setInvalid("false")
-        let a = false
-
-        if (!(/^\w+([\.-]?\w+)@\w+([\.-]?\w+)(\.\w{2,3})+$/.test(email)))
-            {      
-              // toggleInvalid()
-              setInvalid("true")
-              a = true
-              setEmailError("You have entered an invalid email address!")
-              setTryAgain(true)
-            }
-        if (!a) {
-          if (password.length < 6) {
-                setInvalid(true)
-                a = true
-                setPasswordError("The password must be at least 6 character")
-                // toggleInvalid()
-                setTryAgain(true)
-            }
-          }
-          // alert(a)
-        if (!a) {
-
-          navigate('/upload', { replace: true });
-
-          try {
-            await Axios.post("http://localhost:8000/login", {
-                email: email,
-                password: password
-            })
-          } catch (error) {
-            console.log(error)
-          }
-        
-        }
-        const  handleLoginApi= () => {
-          return(
-           Axios.post('https://vr4cxb4qhb.execute-api.us-west-2.amazonaws.com/prod/getusercred',{
-            "username": email,
-            "password": password
-           }).then(result =>{
-               var res = JSON.stringify(result['data'])
-               var final_res = JSON.parse(res)
-               var resp = final_res[0]['p_out_mssg_flg']
-  
-               if ( resp  === 'S') {
-                   window.alert("Successfully SIgned In");
-               }
-               else {
-                   window.alert("You dont exist")
-               }
-           })
-           .catch(error =>{
-               console.log(error)
-           })
-          );
-        }
-      
-        // setInvalid("false")
+const handleChange = (e) => {
+  setEmail(e.target.value)
+} 
+const handlepassChange = (e) => {
+  setPassword(e.target.value)
 }
 
 return (
-  <html>
-  <head>
+  <html><head>
   </head>
   <body>
   <div class="wrapper">
@@ -107,24 +49,31 @@ return (
           <h3>Welcome back.</h3> 
         </div>
         <div style={{"marginBottom": "3%"}}>
-          <CustomInput type="email" placeholder="Email" className="custom_input" name="name" callback={emailCallback}/>
+          <input type="email" placeholder="Email" className="custom_input" name="name" onChange={handleChange}  />
           <p class="error_warning">{emailError}</p>
         </div>
-        <div style={{"marginBottom": "3%"}}>
-          <CustomInput type="password" placeholder="Password" className="custom_input" name="password" callback={passwordCallback}/>
+        <div style={{"marginBottom": "3%"}} >
+          <input type="password" placeholder="Password" className="custom_input" name="password" onChange={handlepassChange} />
           <p class="error_warning">{passwordError}</p>
         </div>
     
-        <div onClick={handleSubmit}>
-          <CustomButton className="form_btn" >
-            SIGN IN
-          </CustomButton>
+        <div>
+        {email && password?
+            <div onClick={handleSubmit}> 
+            <button className="form_btn dt" >
+               SIGN IN
+            </button> 
+            </div>
+           :
+        <div>   
+        <button className="form_btn df" disable={true}>
+           SIGN IN
+        </button> 
         </div>
-        {tryAgain ? 
-        <CustomButton className="form_btn">
-            TRY AGAIN
-          </CustomButton>
-         : <></> }
+        }  
+      
+        </div>
+       
       </form>
     </div>
     <div class="overlay-container">
