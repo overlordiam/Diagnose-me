@@ -32,4 +32,4 @@ class HelloApiHandler(Resource):
     
     final_ret = {"status": "Success", "message": message}
 
-    return final_retxx
+    return final_ret
